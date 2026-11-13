@@ -1,0 +1,8 @@
+Position,x-coordinate,y-coordinate,Actions
+1,0,0,F
+2,0,1,F
+3,0,2,B
+4,0,1,LF
+5,1,1,LF
+6,1,2,RF
+7,2,2,
