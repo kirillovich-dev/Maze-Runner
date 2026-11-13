@@ -203,19 +203,3 @@ def explore(runner: dict, maze: dict, goal: Optional[tuple[int, int]] = None) ->
 
     history.append((runner["x"], runner["y"], None))
     return history
-
-if __name__ == "__main__":
-    import maze as m
-
-    # Create a basic 5x5 maze
-    test_maze = m.create_maze(5, 5)
-
-    # Start runner at (0,0) facing North
-    test_runner = create_runner(0, 0, "N")
-
-    # Tell the runner to explore to the top right corner (4, 4)
-    path = explore(test_runner, test_maze)
-
-    print("Path taken:")
-    for step in path:
-        print(step)
