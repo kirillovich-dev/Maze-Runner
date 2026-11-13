@@ -1,4 +1,12 @@
-def create_maze(width=5, height=5):
+"""Module for creating and managing the maze structure."""
+
+def create_maze(width: int = 5, height: int = 5) -> dict:
+    """Create a new maze with the given dimensions.
+
+    :param width: The width of the maze.
+    :param height: The height of the maze.
+    :return: A dictionary representing the newly created maze.
+    """
     return {
         "width": width,
         "height": height,
@@ -6,7 +14,15 @@ def create_maze(width=5, height=5):
         "vertical_walls": []
     }
 
-def add_horizontal_wall(maze, x_coordinate, horizontal_line):
+
+def add_horizontal_wall(maze: dict, x_coordinate: int, horizontal_line: int) -> dict:
+    """Add a horizontal wall to the maze at the specified coordinates.
+
+    :param maze: The maze to add the wall to.
+    :param x_coordinate: The x-coordinate of the wall.
+    :param horizontal_line: The horizontal line number of the wall.
+    :return: A new maze dictionary with the horizontal wall added.
+    """
     current_walls = list(maze["horizontal_walls"])
     current_walls.append((x_coordinate, horizontal_line))
     return{
@@ -16,7 +32,15 @@ def add_horizontal_wall(maze, x_coordinate, horizontal_line):
         "vertical_walls": maze["vertical_walls"]
     }
 
-def add_vertical_wall(maze, y_coordinate, vertical_line):
+
+def add_vertical_wall(maze: dict, y_coordinate: int, vertical_line: int) -> dict:
+    """Add a vertical wall to the maze at the specified coordinates.
+
+    :param maze: The maze to add the wall to.
+    :param y_coordinate: The y-coordinate of the wall.
+    :param vertical_line: The vertical line number of the wall.
+    :return: A new maze dictionary with the vertical wall added.
+    """
     current_walls = list(maze["vertical_walls"])
     current_walls.append((y_coordinate, vertical_line))
     return{
@@ -26,10 +50,24 @@ def add_vertical_wall(maze, y_coordinate, vertical_line):
         "vertical_walls": current_walls
     }
 
-def get_dimensions(maze):
+
+def get_dimensions(maze: dict) -> tuple[int, int]:
+    """Get the width and height of the maze.
+
+    :param maze: The maze to get dimensions for.
+    :return: A tuple containing the width and height.
+    """
     return (maze["width"], maze["height"])
 
-def get_walls(maze, x, y):
+
+def get_walls(maze: dict, x: int, y: int) -> tuple[bool, bool, bool, bool]:
+    """Get the walls surrounding a specific coordinate in the maze.
+
+    :param maze: The maze to check.
+    :param x: The x-coordinate to check.
+    :param y: The y-coordinate to check.
+    :return: A tuple of booleans representing walls to the North, East, South, and West.
+    """
     north = False
     east = False
     south = False
